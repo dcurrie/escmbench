@@ -128,6 +128,30 @@ escmbench e% sh bench.sh
 (ltak   0.05  0.01  0.01  0.07 )
 (strng  0.12  0.16  0.13  x.xx )
 (tak    0.09  0.02  0.01  0.09 )
+escmbench e% sh bench.sh 
+(times   ls9 flisp eflisp tiny )
+(blank  0.01  0.01  0.00  0.00 )
+(ack    0.42  0.07  0.06  0.27 )
+(array  0.30  0.08  0.07  x.xx )
+(boyer  1.08  0.29  0.11  4.39 )
+(ctak   0.02  0.09  0.08  x.xx )
+(cptak  0.15  0.03  0.03  0.16 )
+(fib    0.33  0.06  0.06  0.21 )
+(ltak   0.05  0.02  0.01  0.07 )
+(strng  0.12  0.19  0.13  x.xx )
+(tak    0.09  0.02  0.01  0.10 )
+escmbench e% sh bench.sh
+(times   ls9 flisp eflisp tiny )
+(blank  0.00  0.01  0.00  0.00 )
+(ack    0.41  0.07  0.06  0.27 )
+(array  0.29  0.08  0.07  x.xx )
+(boyer  1.06  0.29  0.10  4.45 )
+(ctak   0.02  0.10  0.08  x.xx )
+(cptak  0.15  0.03  0.03  0.17 )
+(fib    0.34  0.06  0.06  0.22 )
+(ltak   0.05  0.02  0.01  0.07 )
+(strng  0.13  0.16  0.15  x.xx )
+(tak    0.10  0.02  0.01  0.10 )
 escmbench e% 
 ```
 
@@ -145,7 +169,7 @@ LISP9, though they're not quite twice as big.
 Name | Executable | Support file | TEXT seg | DATA seg | Process Memory
 ---- | ---------- | ------------ | -------- | -------- | --------------
 tiny   |    27360 |        13340 |    20480 |   397312 |  4.7 MB
-eflisp |   267848 |            0 |   196608 |    16384 |  5.1 MB
+eflisp |   272152 |            0 |   200704 |    16384 |  5.1 MB
 flisp  |   188764 |        39820 |   151552 |    20480 |  6.1 MB
 ls9    |   210100 |      3407956 |   159744 |     4096 |  3.6 MB
 
@@ -162,9 +186,9 @@ escmbench e% ls -l system.lsp
 
 escmbench e% size ./eflisp
 __TEXT  __DATA  __OBJC  others  dec hex
-196608  16384   0   4295032832  4295245824  100044000
-escmbench e% ls -l eflisp 
--rwxr-xr-x  1 e  staff  267848 Aug 26  2017 eflisp
+200704  16384   0   4295032832  4295249920  100045000   
+escmbench e% ls -l eflisp
+-rwxr-xr-x  1 e  staff  272152 Aug 15 15:41 eflisp
 
 escmbench e% size ./flisp
 __TEXT  __DATA  __OBJC  others  dec hex
