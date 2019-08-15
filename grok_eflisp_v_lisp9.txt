@@ -1,0 +1,160 @@
+eflisp:
+
+> (disassemble fib)
+maxstack 8
+00000:  argc    1
+00002:  loada0  
+00003:  loadi8  2
+00005:  lt2 
+00006:  brf @0000b
+00009:  loada0  
+0000a:  ret 
+0000b:  loadg   fib
+0000d:  loada0  
+0000e:  ld1sub2 
+0000f:  call    1
+00011:  loadg   fib
+00013:  loada0  
+00014:  loadi8  2
+00016:  sub2    
+00017:  call    1
+00019:  add2    
+0001a:  ret 
+#t
+
+
+lisp9:
+
+* (disasm fib)
+#<function>
+*     0 jmp      64
+    3 enter    1
+    6 pushtrue
+    7 arg      0
+   10 push
+   11 quote    2
+   14 <
+   15 pop
+   16 brf      25
+   19 arg      0
+   22 jmp      63
+   25 arg      0
+   28 push
+   29 quote    1
+   32 -
+   33 push
+   34 pushval  1
+   37 ref      0 fib
+   42 apply
+   43 push
+   44 arg      0
+   47 push
+   48 quote    2
+   51 -
+   52 push
+   53 pushval  1
+   56 ref      0 fib
+   61 apply
+   62 +
+   63 return
+   64 mkenv    1
+   67 cpref    375 0
+   72 closure  3
+   75 setref   375
+   78 halt
+nil
+
+eflisp:
+
+> (disassemble ack)
+maxstack 9
+00000:  argc    2
+00002:  loada0  
+00003:  load0   
+00004:  numeq2  
+00005:  brf @0000b
+00008:  loada1  
+00009:  ld1add2 
+0000a:  ret 
+0000b:  loada1  
+0000c:  load0   
+0000d:  numeq2  
+0000e:  brf @00019
+00011:  loadg   ack
+00013:  loada0  
+00014:  ld1sub2 
+00015:  load1   
+00016:  tcall   2
+00018:  ret 
+00019:  loadg   ack
+0001b:  loada0  
+0001c:  ld1sub2 
+0001d:  loadg   ack
+0001f:  loada0a1    
+00020:  ld1sub2 
+00021:  call    2
+00023:  tcall   2
+00025:  ret 
+#t
+
+lisp9:
+
+* (disasm ack)
+    0 jmp      110
+    3 enter    2
+    6 pushtrue
+    7 arg      0
+   10 push
+   11 quote    0
+   14 =
+   15 pop
+   16 brf      30
+   19 arg      1
+   22 push
+   23 quote    1
+   26 +
+   27 jmp      109
+   30 pushtrue
+   31 arg      1
+   34 push
+   35 quote    0
+   38 =
+   39 pop
+   40 brf      68
+   43 quote    1
+   46 push
+   47 arg      0
+   50 push
+   51 quote    1
+   54 -
+   55 push
+   56 pushval  2
+   59 ref      0 ack
+   64 tailapp
+   65 jmp      109
+   68 arg      1
+   71 push
+   72 quote    1
+   75 -
+   76 push
+   77 arg      0
+   80 push
+   81 pushval  2
+   84 ref      0 ack
+   89 apply
+   90 push
+   91 arg      0
+   94 push
+   95 quote    1
+   98 -
+   99 push
+  100 pushval  2
+  103 ref      0 ack
+  108 tailapp
+  109 return
+  110 mkenv    1
+  113 cpref    376 0
+  118 closure  3
+  121 setref   376
+  124 halt
+nil

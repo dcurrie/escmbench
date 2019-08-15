@@ -1,0 +1,13 @@
+(define (res x z)
+  (/ (round (/ (* x 100) z)) 100))
+
+(for-each
+  (lambda (x)
+    (let ((z (cadr x)))
+      (print
+	`(,(car x)
+          1
+          ,(res (caddr x) z)
+          ,(res (cadddr x) z)
+          ,(res (car (cddddr x)) z)))))
+  (read))
